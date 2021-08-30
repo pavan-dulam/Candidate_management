@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <div class="header-container"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' href="css/style.css">
+    <script type="text/javascript" src="js/main.js"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+        <!-- Edit Modal HTML -->
+      <div id="editCandidateModal" class="container">
+        <h4 class="text-center">update candidate</h4>
+            <form th:action="@{/service/addCandidate}" method="POST" th:object="${candidate}">
+              <input type="hidden" th:field="*{id}" />
+                <div class="form-group">
+                  <label>FirstName</label>
+                  <input type="text" th:field="*{firstname}" name="firstname" class="form-control" required/>
+                </div>
+                <div class="form-group">
+                  <label>LastName</label>
+                  <input type="text" th:field="*{lastname}" name="lastname" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="email" th:field="*{email}" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label>Phone</label>
+                  <input type="phone" th:field="*{phone}" name="phone" class="form-control" required>
+                </div>
+              
+              <div class="form-group m-4">
+               
+                <input type="submit" class="btn btn-success" value="update">
+               
+              </div>
+            </form>
+          
+        
+      </div>
+</body>
+</html>
